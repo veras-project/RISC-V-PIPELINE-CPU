@@ -50,8 +50,6 @@ module pl_alu_ctrl (
                 3'h2: Operation = 4'd11; //SLTI
                 3'h6: Operatioon = 4'd04 //ORI
                 3'h7: Operation = 4'd05 //ANDI
-
-                
                 endcase
             default: Operation = 4'd01;
         endcase
