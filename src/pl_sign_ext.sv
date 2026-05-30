@@ -17,13 +17,14 @@ module pl_sign_ext (
 );
 
     localparam LOAD   = 7'b0000011;
+    localparam I_TYPE = 7'b0010011;
     localparam STORE  = 7'b0100011;
     localparam BRANCH = 7'b1100011;
 
     always_comb begin
         case (Instr[6:0])
             LOAD:   ImmExt = {{20{Instr[31]}}, Instr[31:20]};
-
+            I_TYPE: ImmExt = {{20{Instr[31]}}, Instr[31:20]};
             STORE:  ImmExt = {{20{Instr[31]}}, Instr[31:25], Instr[11:7]};
 
             BRANCH: ImmExt = {{19{Instr[31]}}, Instr[31], Instr[7],
