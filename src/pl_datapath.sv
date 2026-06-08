@@ -314,9 +314,47 @@ module pl_datapath (
     // =========================================================================
     assign mmio_sel = ex_mem.alu_result[10];
 
+    // Mapeamento de posição da Word na memória com uma variável chamada byte_enable
+
+    logic [3:0] byte_enable;
+    logic [31:0] writeDataAlign;
+
+    always_comb begin
+        byte_enable = 4'b0000; // Por padrão, não escreve nada
+        write_data_aligned = ex_mem.write_data;
+
+        if (ex_mem.mem_write) begin
+            case (ex_mem.funct3)
+                3'b010: // SW (Store Word)
+                    byte_enable = 4'b1111; 
+                    write_data_aligned = ex_mem.write_data;
+                
+                3'b000: begin // SB (Store Byte)
+                    write_data_aligned = {4{ex_mem.write_data[7:0]}};;
+                    
+                    case (ex_mem.alu_result[1:0])
+                        2'b00: byte_enable = 4'b0001; 
+                        2'b01: byte_enable = 4'b0010; 
+                        2'b10: byte_enable = 4'b0100; 
+                        2'b11: byte_enable = 4'b1000;
+                    endcase
+                end
+                3'b001: begin // SH (Store Half)
+                    writeDataAlign = {2{ex_mem.write_data[15:0]}};
+                    
+                    case (ex_mem.alu_result[1])
+                        1'b0: byte_enable = 4'b0011; 
+                        1'b1: byte_enable = 4'b1100; 
+                        default: 
+                    endcase
+                end
+            endcase
+        end
+    end
+
     pl_dmem dmem (
         .clk       (clk),
-        .MemWrite  (ex_mem.mem_write & ~mmio_sel),
+        .ByteEnable  (mmio_sel ? 4'b0000 : byte_enable),
         .addr      (ex_mem.alu_result[9:2]),
         .WriteData (ex_mem.write_data),
         .ReadData  (dmem_rd)
