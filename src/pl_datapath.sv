@@ -333,7 +333,7 @@ module pl_datapath (
                     write_data_aligned = {4{ex_mem.write_data[7:0]}};;
                     
                     case (ex_mem.alu_result[1:0])
-                        2'b00: byte_enable = 4'b000 1; 
+                        2'b00: byte_enable = 4'b0001; 
                         2'b01: byte_enable = 4'b0010; 
                         2'b10: byte_enable = 4'b0100; 
                         2'b11: byte_enable = 4'b1000;
