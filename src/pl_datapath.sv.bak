@@ -321,16 +321,16 @@ module pl_datapath (
 
     always_comb begin
         byte_enable = 4'b0000; // Por padrão, não escreve nada
-        writeDataAlign = ex_mem.write_data;
+        write_data_aligned = ex_mem.write_data;
 
         if (ex_mem.mem_write) begin
             case (ex_mem.funct3)
-                3'b010:begin // SW (Store Word)
+                3'b010: // SW (Store Word)
                     byte_enable = 4'b1111; 
-                    writeDataAlign = ex_mem.write_data;
-                end
+                    write_data_aligned = ex_mem.write_data;
+                
                 3'b000: begin // SB (Store Byte)
-                    writeDataAlign = {4{ex_mem.write_data[7:0]}};;
+                    write_data_aligned = {4{ex_mem.write_data[7:0]}};;
                     
                     case (ex_mem.alu_result[1:0])
                         2'b00: byte_enable = 4'b0001; 
@@ -345,7 +345,7 @@ module pl_datapath (
                     case (ex_mem.alu_result[1])
                         1'b0: byte_enable = 4'b0011; 
                         1'b1: byte_enable = 4'b1100; 
-                        default: ; 
+                        default: 
                     endcase
                 end
             endcase
@@ -417,6 +417,7 @@ module pl_datapath (
         .UART_RXD  (UART_RXD)
     );
 
+    assign mem_read_data = mmio_sel ? mmio_rd : dmem_rd;
 
     // Saidas de observabilidade para o testbench
     assign mem_wr_en   = ex_mem.mem_write & ~mmio_sel;
