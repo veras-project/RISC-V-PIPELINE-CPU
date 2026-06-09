@@ -39,14 +39,30 @@ Processador RISC-V de 32 bits com pipeline de 5 estágios implementado em System
 | 6 | `SRLI`    | I    | 0010011 | ✅ |
 | 7 | `SRAI`    | I    | 0010011 | ✅ |
 
+#### Acesso à memória — loads (I-type)
+
+| # | Instrução | Tipo | Opcode  | Status |
+|---|-----------|------|---------|:------:|
+| 1 | `LB`      | I    | 0000011 | ✅ |
+| 2 | `LH`      | I    | 0000011 | ✅ |
+| 3 | `LBU`     | I    | 0000011 | ✅ |
+| 4 | `LHU`     | I    | 0000011 | ✅ |
+
+#### Acesso à memória — stores (S-type)
+
+| # | Instrução | Tipo | Opcode  | Status |
+|---|-----------|------|---------|:------:|
+| 1 | `SB`      | S    | 0100011 | ✅ |
+| 2 | `SH`      | S    | 0100011 | ✅ |
+
 ### Resumo de cobertura do ISA RV32I
 
 | Categoria          | Total ISA | Implementadas | Faltando |
 |--------------------|:---------:|:-------------:|:--------:|
-| R-type             | 10        | 5             | 5        |
-| I-type aritmético  | 9         | 0             | 9        |
-| I-type load        | 5         | 1 (LW)        | 4        |
-| S-type             | 3         | 1 (SW)        | 2        |
+| R-type             | 10        | 10            | 0        |
+| I-type aritmético  | 9         | 7             | 2        |
+| I-type load        | 5         | 5 (LW)        | 0        |
+| S-type             | 3         | 3 (SW)        | 0        |
 | B-type             | 6         | 1 (BEQ)       | 5        |
 | U-type             | 2         | 0             | 2        |
 | J-type             | 2         | 0             | 2        |
@@ -54,22 +70,6 @@ Processador RISC-V de 32 bits com pipeline de 5 estágios implementado em System
 
 
 ### Instruções a implementar — Etapa 02
-
-#### Acesso à memória — loads (I-type)
-
-| # | Instrução | Tipo | Opcode  | Status |
-|---|-----------|------|---------|:------:|
-| 1 | `LB`      | I    | 0000011 | ❌ |
-| 2 | `LH`      | I    | 0000011 | ❌ |
-| 3 | `LBU`     | I    | 0000011 | ❌ |
-| 4 | `LHU`     | I    | 0000011 | ❌ |
-
-#### Acesso à memória — stores (S-type)
-
-| # | Instrução | Tipo | Opcode  | Status |
-|---|-----------|------|---------|:------:|
-| 1 | `SB`      | S    | 0100011 | ❌ |
-| 2 | `SH`      | S    | 0100011 | ❌ |
 
 #### Desvios condicionais (B-type)
 
