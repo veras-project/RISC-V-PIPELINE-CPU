@@ -22,7 +22,7 @@
 
 module pl_regfile (
     input  logic        clk,
-    input  logic        RegWrite,
+    input  logic [3:0]  ByteEnable,
     input  logic [4:0]  rs1,
     input  logic [4:0]  rs2,
     input  logic [4:0]  rd,
@@ -36,8 +36,12 @@ module pl_regfile (
     // Escrita no negedge: a atualizacao fica visivel antes do proximo posedge,
     // evitando o conflito read-after-write quando WB e ID ocorrem no mesmo ciclo.
     always_ff @(negedge clk) begin
-        if (RegWrite && rd != 5'b0)
-            rf[rd] <= WriteData;
+        if (rd != 5'b0) begin
+            if (ByteEnable[0]) rf[rd][7:0]   <= WriteData[7:0];
+            if (ByteEnable[1]) rf[rd][15:8]  <= WriteData[15:8];
+            if (ByteEnable[2]) rf[rd][23:16] <= WriteData[23:16];
+            if (ByteEnable[3]) rf[rd][31:24] <= WriteData[31:24];
+        end
     end
 
     assign ReadData1 = (rs1 != 5'b0) ? rf[rs1] : 32'b0;

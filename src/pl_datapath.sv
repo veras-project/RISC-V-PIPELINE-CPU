@@ -333,7 +333,7 @@ module pl_datapath (
                     write_data_aligned = {4{ex_mem.write_data[7:0]}};;
                     
                     case (ex_mem.alu_result[1:0])
-                        2'b00: byte_enable = 4'b0001; 
+                        2'b00: byte_enable = 4'b000 1; 
                         2'b01: byte_enable = 4'b0010; 
                         2'b10: byte_enable = 4'b0100; 
                         2'b11: byte_enable = 4'b1000;
@@ -350,6 +350,47 @@ module pl_datapath (
                 end
             endcase
         end
+    end
+
+    logic [31:0] aligned_mem_data;
+
+    always_comb begin
+        // Padrão é a palavra inteira (LW)
+        mem_read_data = mmio_sel ? mmio_rd : dmem_rd;
+        aligned_mem_data = mem_read_data; 
+
+        // Se ex_mem tiver funct3, usamos ele aqui no estágio de MEMÓRIA
+        case (ex_mem.funct3) 
+            3'b000: begin // LB
+                case (ex_mem.alu_result[1:0])
+                    2'b00: aligned_mem_data = {{24{mem_read_data[7]}},  mem_read_data[7:0]};
+                    2'b01: aligned_mem_data = {{24{mem_read_data[15]}}, mem_read_data[15:8]};
+                    2'b10: aligned_mem_data = {{24{mem_read_data[23]}}, mem_read_data[23:16]};
+                    2'b11: aligned_mem_data = {{24{mem_read_data[31]}}, mem_read_data[31:24]};
+                endcase
+            end
+            3'b001: begin // LH
+                case (ex_mem.alu_result[1])
+                    1'b0: aligned_mem_data = {{16{mem_read_data[15]}}, mem_read_data[15:0]};
+                    1'b1: aligned_mem_data = {{16{mem_read_data[31]}}, mem_read_data[31:16]};
+                endcase
+            end
+            3'b100: begin // LBU
+                case (ex_mem.alu_result[1:0])
+                    2'b00: aligned_mem_data = {24'b0, mem_read_data[7:0]};
+                    2'b01: aligned_mem_data = {24'b0, mem_read_data[15:8]};
+                    2'b10: aligned_mem_data = {24'b0, mem_read_data[23:16]};
+                    2'b11: aligned_mem_data = {24'b0, mem_read_data[31:24]};
+                endcase
+            end
+            3'b101: begin // LHU
+                case (ex_mem.alu_result[1])
+                    1'b0: aligned_mem_data = {16'b0, mem_read_data[15:0]};
+                    1'b1: aligned_mem_data = {16'b0, mem_read_data[31:16]};
+                endcase
+            end
+            default: aligned_mem_data = mem_read_data;
+        endcase
     end
 
     pl_dmem dmem (
@@ -397,7 +438,7 @@ module pl_datapath (
             mem_wb.mem_to_reg <= ex_mem.mem_to_reg;
             mem_wb.reg_write  <= ex_mem.reg_write;
             mem_wb.alu_result <= ex_mem.alu_result;
-            mem_wb.read_data  <= mem_read_data;
+            mem_wb.read_data  <= aligned_mem_data;
             mem_wb.rd         <= ex_mem.rd;
         end
     end
