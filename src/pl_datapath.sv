@@ -317,7 +317,7 @@ module pl_datapath (
     // Mapeamento de posição da Word na memória com uma variável chamada byte_enable
 
     logic [3:0] byte_enable;
-    logic [31:0] writeDataAlign;
+    logic [31:0] write_data_aligned;
 
     always_comb begin
         byte_enable = 4'b0000; // Por padrão, não escreve nada
@@ -325,12 +325,12 @@ module pl_datapath (
 
         if (ex_mem.mem_write) begin
             case (ex_mem.funct3)
-                3'b010: // SW (Store Word)
+                3'b010:begin // SW (Store Word)
                     byte_enable = 4'b1111; 
                     write_data_aligned = ex_mem.write_data;
-                
+                end
                 3'b000: begin // SB (Store Byte)
-                    write_data_aligned = {4{ex_mem.write_data[7:0]}};;
+                    write_data_aligned = {4{ex_mem.write_data[7:0]}};
                     
                     case (ex_mem.alu_result[1:0])
                         2'b00: byte_enable = 4'b0001; 
@@ -340,12 +340,11 @@ module pl_datapath (
                     endcase
                 end
                 3'b001: begin // SH (Store Half)
-                    writeDataAlign = {2{ex_mem.write_data[15:0]}};
+                    write_data_aligned = {2{ex_mem.write_data[15:0]}};
                     
                     case (ex_mem.alu_result[1])
                         1'b0: byte_enable = 4'b0011; 
                         1'b1: byte_enable = 4'b1100; 
-                        default: 
                     endcase
                 end
             endcase
@@ -397,7 +396,7 @@ module pl_datapath (
         .clk       (clk),
         .ByteEnable  (mmio_sel ? 4'b0000 : byte_enable),
         .addr      (ex_mem.alu_result[9:2]),
-        .WriteData (ex_mem.write_data),
+        .WriteData (write_data_aligned),
         .ReadData  (dmem_rd)
     );
 
@@ -417,12 +416,10 @@ module pl_datapath (
         .UART_RXD  (UART_RXD)
     );
 
-    assign mem_read_data = mmio_sel ? mmio_rd : dmem_rd;
-
     // Saidas de observabilidade para o testbench
     assign mem_wr_en   = ex_mem.mem_write & ~mmio_sel;
     assign mem_wr_addr = ex_mem.alu_result[9:2];
-    assign mem_wr_data = ex_mem.write_data;
+    assign mem_wr_data = write_data_aligned;
 
     // =========================================================================
     // Registrador MEM/WB
