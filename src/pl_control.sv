@@ -80,7 +80,7 @@ module pl_control (
                 Branch   = 1'b1;
                 ALUOp    = 2'b01;
             end
-            default: ALUOp = 2'b01; // sinais permanecem em zero (seguro)
+            default: ; // sinais permanecem em zero (seguro)
         endcase
     end
 
