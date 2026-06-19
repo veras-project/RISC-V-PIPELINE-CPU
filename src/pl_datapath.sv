@@ -314,11 +314,88 @@ module pl_datapath (
     // =========================================================================
     assign mmio_sel = ex_mem.alu_result[10];
 
+    logic [3:0] byte_enable;
+    logic [31:0] write_data_aligned;
+
+    always_comb begin
+        byte_enable = 4'b0000; // Por padrão, não escreve nada
+        write_data_aligned = ex_mem.write_data;
+
+        if (ex_mem.mem_write) begin
+            case (ex_mem.funct3)
+                3'b010:begin // SW (Store Word)
+                    byte_enable = 4'b1111; 
+                    write_data_aligned = ex_mem.write_data;
+                end
+                3'b000: begin // SB (Store Byte)
+                    write_data_aligned = {4{ex_mem.write_data[7:0]}};
+                    
+                    case (ex_mem.alu_result[1:0])
+                        2'b00: byte_enable = 4'b0001; 
+                        2'b01: byte_enable = 4'b0010; 
+                        2'b10: byte_enable = 4'b0100; 
+                        2'b11: byte_enable = 4'b1000;
+                    endcase
+                end
+                3'b001: begin // SH (Store Half)
+                    write_data_aligned = {2{ex_mem.write_data[15:0]}};
+                    
+                    case (ex_mem.alu_result[1])
+                        1'b0: byte_enable = 4'b0011; 
+                        1'b1: byte_enable = 4'b1100; 
+                    endcase
+                end
+            endcase
+        end
+    end
+
+    logic [31:0] aligned_mem_data;
+    assign mem_read_data = mmio_sel ? mmio_rd : dmem_rd;
+
+    always_comb begin
+        // Padrão é a palavra inteira (LW)
+        aligned_mem_data = mem_read_data; 
+
+        // Se ex_mem tiver funct3, usamos ele aqui no estágio de MEMÓRIA
+        case (ex_mem.funct3) 
+            3'b000: begin // LB
+                case (ex_mem.alu_result[1:0])
+                    2'b00: aligned_mem_data = {{24{mem_read_data[7]}},  mem_read_data[7:0]};
+                    2'b01: aligned_mem_data = {{24{mem_read_data[15]}}, mem_read_data[15:8]};
+                    2'b10: aligned_mem_data = {{24{mem_read_data[23]}}, mem_read_data[23:16]};
+                    2'b11: aligned_mem_data = {{24{mem_read_data[31]}}, mem_read_data[31:24]};
+                endcase
+            end
+            3'b001: begin // LH
+                case (ex_mem.alu_result[1])
+                    1'b0: aligned_mem_data = {{16{mem_read_data[15]}}, mem_read_data[15:0]};
+                    1'b1: aligned_mem_data = {{16{mem_read_data[31]}}, mem_read_data[31:16]};
+                endcase
+            end
+            3'b100: begin // LBU
+                case (ex_mem.alu_result[1:0])
+                    2'b00: aligned_mem_data = {24'b0, mem_read_data[7:0]};
+                    2'b01: aligned_mem_data = {24'b0, mem_read_data[15:8]};
+                    2'b10: aligned_mem_data = {24'b0, mem_read_data[23:16]};
+                    2'b11: aligned_mem_data = {24'b0, mem_read_data[31:24]};
+                endcase
+            end
+            3'b101: begin // LHU
+                case (ex_mem.alu_result[1])
+                    1'b0: aligned_mem_data = {16'b0, mem_read_data[15:0]};
+                    1'b1: aligned_mem_data = {16'b0, mem_read_data[31:16]};
+                endcase
+            end
+            default: aligned_mem_data = mem_read_data;
+        endcase
+    end
+
     pl_dmem dmem (
         .clk       (clk),
         .MemWrite  (ex_mem.mem_write & ~mmio_sel),
+        .ByteEnable(mmio_sel ? 4'b0000 : byte_enable),
         .addr      (ex_mem.alu_result[9:2]),
-        .WriteData (ex_mem.write_data),
+        .WriteData (write_data_aligned),
         .ReadData  (dmem_rd)
     );
 
@@ -328,7 +405,7 @@ module pl_datapath (
         .MemWrite  (ex_mem.mem_write &  mmio_sel),
         .MemRead   (ex_mem.mem_read  &  mmio_sel),
         .addr      (ex_mem.alu_result[4:2]),
-        .WriteData (ex_mem.write_data),
+        .WriteData (write_data_aligned),
         .SW        (SW),
         .KEY       (KEY),
         .ReadData  (mmio_rd),
@@ -338,12 +415,12 @@ module pl_datapath (
         .UART_RXD  (UART_RXD)
     );
 
-    assign mem_read_data = mmio_sel ? mmio_rd : dmem_rd;
+    
 
     // Saidas de observabilidade para o testbench
     assign mem_wr_en   = ex_mem.mem_write & ~mmio_sel;
     assign mem_wr_addr = ex_mem.alu_result[9:2];
-    assign mem_wr_data = ex_mem.write_data;
+    assign mem_wr_data = aligned_mem_data;
 
     // =========================================================================
     // Registrador MEM/WB
@@ -359,7 +436,7 @@ module pl_datapath (
             mem_wb.mem_to_reg <= ex_mem.mem_to_reg;
             mem_wb.reg_write  <= ex_mem.reg_write;
             mem_wb.alu_result <= ex_mem.alu_result;
-            mem_wb.read_data  <= mem_read_data;
+            mem_wb.read_data  <= aligned_mem_data;
             mem_wb.rd         <= ex_mem.rd;
         end
     end

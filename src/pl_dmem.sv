@@ -16,12 +16,14 @@
 module pl_dmem (
     input  logic        clk,
     input  logic        MemWrite,
+    input  logic [3:0]  ByteEnable,
     input  logic [7:0]  addr,
     input  logic [31:0] WriteData,
     output logic [31:0] ReadData
 );
 
-    (* ram_init_file = "data.mif" *) logic [31:0] ram [0:255];
+    // Mudança MÁGICA aqui: definimos a memória explicitamente como 4 blocos de 8 bits
+    (* ram_init_file = "data.mif" *) logic [3:0][7:0] ram [0:255];
 
     // synthesis translate_off
     initial begin
@@ -30,10 +32,17 @@ module pl_dmem (
     end
     // synthesis translate_on
 
-    always@(posedge clk) begin
-        if (MemWrite) ram[addr] <= WriteData;
+    always_ff @(posedge clk) begin
+        if (MemWrite) begin 
+            // Agora a ferramenta entende perfeitamente que são vias de gravação separadas
+            if (ByteEnable[0]) ram[addr][0] <= WriteData[7:0];
+            if (ByteEnable[1]) ram[addr][1] <= WriteData[15:8];
+            if (ByteEnable[2]) ram[addr][2] <= WriteData[23:16];
+            if (ByteEnable[3]) ram[addr][3] <= WriteData[31:24];
+        end
     end
 
+    // A leitura concatena tudo automaticamente de volta para 32 bits
     assign ReadData = ram[addr];
 
 endmodule
