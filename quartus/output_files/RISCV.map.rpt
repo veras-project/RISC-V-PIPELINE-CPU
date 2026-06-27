@@ -1,5 +1,5 @@
 Analysis & Synthesis report for RISCV
-Fri Jun 19 15:58:00 2026
+Sat Jun 27 14:08:51 2026
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -56,13 +56,13 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 19 15:58:00 2026       ;
+; Analysis & Synthesis Status        ; Successful - Sat Jun 27 14:08:51 2026       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; RISCV                                       ;
 ; Top-level Entity Name              ; pl_top_no_pll                               ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 18,191                                      ;
-;     Total combinational functions  ; 8,902                                       ;
+; Total logic elements               ; 18,200                                      ;
+;     Total combinational functions  ; 8,909                                       ;
 ;     Dedicated logic registers      ; 9,717                                       ;
 ; Total registers                    ; 9717                                        ;
 ; Total pins                         ; 52                                          ;
@@ -221,17 +221,17 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+----------------+
 ; Resource                                    ; Usage          ;
 +---------------------------------------------+----------------+
-; Estimated Total logic elements              ; 18,191         ;
+; Estimated Total logic elements              ; 18,200         ;
 ;                                             ;                ;
-; Total combinational functions               ; 8902           ;
+; Total combinational functions               ; 8909           ;
 ; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 7615           ;
-;     -- 3 input functions                    ; 642            ;
-;     -- <=2 input functions                  ; 645            ;
+;     -- 4 input functions                    ; 7538           ;
+;     -- 3 input functions                    ; 705            ;
+;     -- <=2 input functions                  ; 666            ;
 ;                                             ;                ;
 ; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 8732           ;
-;     -- arithmetic mode                      ; 170            ;
+;     -- normal mode                          ; 8709           ;
+;     -- arithmetic mode                      ; 200            ;
 ;                                             ;                ;
 ; Total registers                             ; 9717           ;
 ;     -- Dedicated logic registers            ; 9717           ;
@@ -244,8 +244,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;                ;
 ; Maximum fan-out node                        ; CLOCK_50~input ;
 ; Maximum fan-out                             ; 9749           ;
-; Total fan-out                               ; 63578          ;
-; Average fan-out                             ; 3.39           ;
+; Total fan-out                               ; 63501          ;
+; Average fan-out                             ; 3.38           ;
 +---------------------------------------------+----------------+
 
 
@@ -254,19 +254,19 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
 ; Compilation Hierarchy Node                      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                  ; Entity Name     ; Library Name ;
 +-------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------------------------------+-----------------+--------------+
-; |pl_top_no_pll                                  ; 8902 (0)            ; 9717 (0)                  ; 1024        ; 0            ; 0       ; 0         ; 52   ; 0            ; |pl_top_no_pll                                                                                                       ; pl_top_no_pll   ; work         ;
-;    |pl_cpu:cpu|                                 ; 8902 (0)            ; 9717 (0)                  ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu                                                                                            ; pl_cpu          ; work         ;
-;       |pl_alu_ctrl:alu_ctrl|                    ; 11 (11)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_alu_ctrl:alu_ctrl                                                                       ; pl_alu_ctrl     ; work         ;
+; |pl_top_no_pll                                  ; 8909 (0)            ; 9717 (0)                  ; 1024        ; 0            ; 0       ; 0         ; 52   ; 0            ; |pl_top_no_pll                                                                                                       ; pl_top_no_pll   ; work         ;
+;    |pl_cpu:cpu|                                 ; 8909 (0)            ; 9717 (0)                  ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu                                                                                            ; pl_cpu          ; work         ;
+;       |pl_alu_ctrl:alu_ctrl|                    ; 12 (12)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_alu_ctrl:alu_ctrl                                                                       ; pl_alu_ctrl     ; work         ;
 ;       |pl_control:ctrl|                         ; 3 (3)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_control:ctrl                                                                            ; pl_control      ; work         ;
-;       |pl_datapath:datapath|                    ; 8888 (761)          ; 9717 (330)                ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath                                                                       ; pl_datapath     ; work         ;
-;          |pl_alu:alu|                           ; 663 (663)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu                                                            ; pl_alu          ; work         ;
+;       |pl_datapath:datapath|                    ; 8894 (679)          ; 9717 (330)                ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath                                                                       ; pl_datapath     ; work         ;
+;          |pl_alu:alu|                           ; 742 (742)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu                                                            ; pl_alu          ; work         ;
 ;          |pl_dmem:dmem|                         ; 6550 (6550)         ; 8192 (8192)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_dmem:dmem                                                          ; pl_dmem         ; work         ;
-;          |pl_forward:forward|                   ; 17 (17)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_forward:forward                                                    ; pl_forward      ; work         ;
+;          |pl_forward:forward|                   ; 19 (19)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_forward:forward                                                    ; pl_forward      ; work         ;
 ;          |pl_hazard:hazard|                     ; 9 (9)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_hazard:hazard                                                      ; pl_hazard       ; work         ;
-;          |pl_imem:imem|                         ; 115 (115)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_imem:imem                                                          ; pl_imem         ; work         ;
+;          |pl_imem:imem|                         ; 58 (58)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_imem:imem                                                          ; pl_imem         ; work         ;
 ;          |pl_mmio:mmio|                         ; 145 (46)            ; 170 (95)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio                                                          ; pl_mmio         ; work         ;
 ;             |pl_uart:uart_inst|                 ; 99 (99)             ; 75 (75)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst                                        ; pl_uart         ; work         ;
-;          |pl_regfile:regfile|                   ; 627 (627)           ; 1025 (1025)               ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile                                                    ; pl_regfile      ; work         ;
+;          |pl_regfile:regfile|                   ; 691 (691)           ; 1025 (1025)               ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile                                                    ; pl_regfile      ; work         ;
 ;             |altsyncram:rf_rtl_0|               ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|altsyncram:rf_rtl_0                                ; altsyncram      ; work         ;
 ;                |altsyncram_kvc1:auto_generated| ; 0 (0)               ; 0 (0)                     ; 1024        ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|altsyncram:rf_rtl_0|altsyncram_kvc1:auto_generated ; altsyncram_kvc1 ; work         ;
 ;          |pl_sign_ext:sign_ext|                 ; 1 (1)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_sign_ext:sign_ext                                                  ; pl_sign_ext     ; work         ;
@@ -315,38 +315,38 @@ Encoding Type:  One-Hot
 ; Register name                                                             ; Reason for Removal                          ;
 +---------------------------------------------------------------------------+---------------------------------------------+
 ; pl_cpu:cpu|pl_datapath:datapath|if_id.instr[2,3]                          ; Stuck at GND due to stuck port data_in      ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~1                   ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~2                   ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~3                   ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~4                   ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~5                   ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~6                   ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~7                   ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~8                   ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~9                   ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~10                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~11                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~12                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~13                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~14                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~15                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~16                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~17                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~18                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~19                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~20                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~21                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~22                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~23                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~24                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~25                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~26                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~27                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~28                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~29                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~30                  ; Stuck at GND due to stuck port clock_enable ;
-; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~31                  ; Stuck at GND due to stuck port clock_enable ;
 ; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~32                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~31                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~30                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~29                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~28                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~27                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~26                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~25                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~24                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~23                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~22                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~21                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~20                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~19                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~18                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~17                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~16                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~15                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~14                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~13                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~12                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~11                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~10                  ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~9                   ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~8                   ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~7                   ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~6                   ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~5                   ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~4                   ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~3                   ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~2                   ; Stuck at GND due to stuck port clock_enable ;
+; pl_cpu:cpu|pl_datapath:datapath|pl_regfile:regfile|rf~1                   ; Stuck at GND due to stuck port clock_enable ;
 ; pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|rx_state~8 ; Lost fanout                                 ;
 ; pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|rx_state~9 ; Lost fanout                                 ;
 ; pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|tx_state~8 ; Lost fanout                                 ;
@@ -442,43 +442,42 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_wb.read_data[15]                         ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_wb.read_data[8]                          ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|tx_byte_idx[1]                  ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|id_ex.imm_ext[9]                             ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|id_ex.imm_ext[5]                             ;
 ; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|if_id.instr[0]                               ;
-; 3:1                ; 55 bits   ; 110 LEs       ; 55 LEs               ; 55 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|if_id.instr[9]                               ;
-; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pc_reg[11]                                   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|id_ex.rd2[12]                                ;
-; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|tx_cnt[10]    ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|id_ex.rd1[28]                                ;
+; 3:1                ; 55 bits   ; 110 LEs       ; 55 LEs               ; 55 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|if_id.pc[11]                                 ;
+; 3:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pc_reg[29]                                   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|id_ex.rd2[7]                                 ;
+; 4:1                ; 16 bits   ; 32 LEs        ; 16 LEs               ; 16 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|tx_cnt[6]     ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|id_ex.rd1[18]                                ;
 ; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|rx_bit_idx[0] ;
-; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|tx_bit_idx[1] ;
-; 33:1               ; 4 bits    ; 88 LEs        ; 8 LEs                ; 80 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|id_ex.imm_ext[4]                             ;
-; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|rx_cnt[8]     ;
-; 8:1                ; 7 bits    ; 35 LEs        ; 21 LEs               ; 14 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|tx_sr[5]      ;
+; 6:1                ; 3 bits    ; 12 LEs        ; 3 LEs                ; 9 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|tx_bit_idx[0] ;
+; 33:1               ; 4 bits    ; 88 LEs        ; 8 LEs                ; 80 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|id_ex.imm_ext[2]                             ;
+; 5:1                ; 16 bits   ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|rx_cnt[7]     ;
+; 8:1                ; 7 bits    ; 35 LEs        ; 21 LEs               ; 14 LEs                 ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|tx_sr[4]      ;
 ; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_wb.read_data[0]                          ;
-; 11:1               ; 3 bits    ; 21 LEs        ; 12 LEs               ; 9 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_wb.read_data[4]                          ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 12 LEs               ; 9 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_wb.read_data[5]                          ;
 ; 11:1               ; 2 bits    ; 14 LEs        ; 8 LEs                ; 6 LEs                  ; Yes        ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_wb.read_data[2]                          ;
-; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_read_data[22]                            ;
+; 3:1                ; 14 bits   ; 28 LEs        ; 28 LEs               ; 0 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_read_data[18]                            ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|if_id                                        ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|Selector35                                   ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|Selector14                                   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|Selector55                                   ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|Selector16                                   ;
 ; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_read_data[16]                            ;
-; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_read_data[15]                            ;
+; 9:1                ; 6 bits    ; 36 LEs        ; 24 LEs               ; 12 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_read_data[14]                            ;
 ; 9:1                ; 3 bits    ; 18 LEs        ; 6 LEs                ; 12 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|mem_read_data[7]                             ;
 ; 9:1                ; 8 bits    ; 48 LEs        ; 16 LEs               ; 32 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|write_data_aligned[24]                       ;
 ; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|comb                                         ;
-; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|Selector29    ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|Selector27    ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|Selector52    ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|Selector49    ;
 ; 8:1                ; 2 bits    ; 10 LEs        ; 4 LEs                ; 6 LEs                  ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst|Selector26    ;
-; 20:1               ; 8 bits    ; 104 LEs       ; 48 LEs               ; 56 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux13                             ;
-; 20:1               ; 8 bits    ; 104 LEs       ; 48 LEs               ; 56 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux21                             ;
-; 21:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux4                              ;
-; 21:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux27                             ;
-; 22:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux2                              ;
-; 22:1               ; 2 bits    ; 28 LEs        ; 16 LEs               ; 12 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux28                             ;
-; 23:1               ; 2 bits    ; 30 LEs        ; 16 LEs               ; 14 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux0                              ;
+; 21:1               ; 8 bits    ; 112 LEs       ; 56 LEs               ; 56 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux16                             ;
+; 22:1               ; 7 bits    ; 98 LEs        ; 56 LEs               ; 42 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux9                              ;
+; 22:1               ; 4 bits    ; 56 LEs        ; 32 LEs               ; 24 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux24                             ;
+; 23:1               ; 4 bits    ; 60 LEs        ; 36 LEs               ; 24 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux5                              ;
+; 23:1               ; 2 bits    ; 30 LEs        ; 18 LEs               ; 12 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux29                             ;
+; 24:1               ; 2 bits    ; 32 LEs        ; 20 LEs               ; 12 LEs                 ; No         ; |pl_top_no_pll|pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu|Mux2                              ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------------------------------------+
 
 
@@ -611,19 +610,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA CLR           ; 117                         ;
 ;     ENA CLR SCLR      ; 33                          ;
 ;     ENA CLR SLD       ; 15                          ;
-; cycloneiii_lcell_comb ; 8903                        ;
-;     arith             ; 170                         ;
-;         2 data inputs ; 67                          ;
-;         3 data inputs ; 103                         ;
-;     normal            ; 8733                        ;
+; cycloneiii_lcell_comb ; 8910                        ;
+;     arith             ; 200                         ;
+;         2 data inputs ; 66                          ;
+;         3 data inputs ; 134                         ;
+;     normal            ; 8710                        ;
 ;         1 data inputs ; 29                          ;
-;         2 data inputs ; 550                         ;
-;         3 data inputs ; 539                         ;
-;         4 data inputs ; 7615                        ;
+;         2 data inputs ; 572                         ;
+;         3 data inputs ; 571                         ;
+;         4 data inputs ; 7538                        ;
 ; cycloneiii_ram_block  ; 32                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 23.00                       ;
-; Average LUT depth     ; 8.92                        ;
+; Max LUT depth         ; 24.00                       ;
+; Average LUT depth     ; 9.15                        ;
 +-----------------------+-----------------------------+
 
 
@@ -642,7 +641,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Fri Jun 19 15:57:36 2026
+    Info: Processing started: Sat Jun 27 14:08:27 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off RISCV -c RISCV
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
@@ -687,7 +686,8 @@ Info (12128): Elaborating entity "pl_alu_ctrl" for hierarchy "pl_cpu:cpu|pl_alu_
 Info (12128): Elaborating entity "pl_datapath" for hierarchy "pl_cpu:cpu|pl_datapath:datapath" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_cpu.sv Line: 111
 Info (10264): Verilog HDL Case Statement information at pl_datapath.sv(256): all case item expressions in this case statement are onehot File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 256
 Info (10264): Verilog HDL Case Statement information at pl_datapath.sv(265): all case item expressions in this case statement are onehot File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 265
-Warning (10270): Verilog HDL Case Statement warning at pl_datapath.sv(325): incomplete case statement has no default case item File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 325
+Warning (10270): Verilog HDL Case Statement warning at pl_datapath.sv(291): incomplete case statement has no default case item File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 291
+Warning (10270): Verilog HDL Case Statement warning at pl_datapath.sv(349): incomplete case statement has no default case item File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 349
 Info (12128): Elaborating entity "pl_imem" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_imem:imem" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 120
 Warning (10858): Verilog HDL warning at pl_imem.sv(20): object rom used but never assigned File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_imem.sv Line: 20
 Info (12128): Elaborating entity "pl_hazard" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_hazard:hazard" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 151
@@ -695,8 +695,8 @@ Info (12128): Elaborating entity "pl_regfile" for hierarchy "pl_cpu:cpu|pl_datap
 Info (12128): Elaborating entity "pl_sign_ext" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_sign_ext:sign_ext" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 170
 Info (12128): Elaborating entity "pl_forward" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_forward:forward" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 252
 Info (12128): Elaborating entity "pl_alu" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_alu:alu" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 281
-Info (12128): Elaborating entity "pl_dmem" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_dmem:dmem" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 400
-Info (12128): Elaborating entity "pl_mmio" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 416
+Info (12128): Elaborating entity "pl_dmem" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_dmem:dmem" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 424
+Info (12128): Elaborating entity "pl_mmio" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_datapath.sv Line: 440
 Info (12128): Elaborating entity "pl_uart" for hierarchy "pl_cpu:cpu|pl_datapath:datapath|pl_mmio:mmio|pl_uart:uart_inst" File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_mmio.sv Line: 66
 Warning (10230): Verilog HDL assignment warning at pl_uart.sv(100): truncated value with size 32 to match size of target (16) File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_uart.sv Line: 100
 Warning (10230): Verilog HDL assignment warning at pl_uart.sv(114): truncated value with size 32 to match size of target (3) File: C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/src/pl_uart.sv Line: 114
@@ -759,14 +759,14 @@ Info (17049): 70 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file C:/Users/phso/Documents/RISC-V-PIPELINE-CPU/quartus/output_files/RISCV.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 18397 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 18411 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 24 input pins
     Info (21059): Implemented 28 output pins
-    Info (21061): Implemented 18313 logic cells
+    Info (21061): Implemented 18327 logic cells
     Info (21064): Implemented 32 RAM segments
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 20 warnings
-    Info: Peak virtual memory: 4982 megabytes
-    Info: Processing ended: Fri Jun 19 15:58:00 2026
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 4996 megabytes
+    Info: Processing ended: Sat Jun 27 14:08:51 2026
     Info: Elapsed time: 00:00:24
     Info: Total CPU time (on all processors): 00:00:36
 

@@ -24,7 +24,7 @@ module pl_sign_ext (
     always_comb begin
         case (Instr[6:0])
             LOAD:   ImmExt = {{20{Instr[31]}}, Instr[31:20]};
-            I_TYPE: ImmExt = {{20{Instr[31]}}, Instr[31:20]};
+            I_TYPE: ImmExt = { {20{Instr[31]}}, Instr[31:20] };
             STORE:  ImmExt = {{20{Instr[31]}}, Instr[31:25], Instr[11:7]};
 
             BRANCH: ImmExt = {{19{Instr[31]}}, Instr[31], Instr[7],

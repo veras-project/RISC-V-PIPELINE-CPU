@@ -280,9 +280,33 @@ module pl_datapath (
         .Zero      (zero)
     );
 
+    logic pcSrc;
+
+    always_comb begin
+        //Padrão: não da branch;
+        pcSrc = 0;
+
+        if (id_ex.branch) begin
+            //Funct3_EX
+            case(Funct3_EX)
+            //BEQ(Branch if Equal)
+                3'b000: pcSrc = zero;
+            //BNE(Branch not equal)
+                3'b001: pcSrc = !zero;
+            //BLT(Branch Less Than)
+                3'b100: pcSrc = alu_result[0];
+            //BGE(Branch Greater Than or Equal)
+                3'b101: pcSrc = !alu_result[0];
+            //BGEU(Branch Greater than)
+                3'b110: pcSrc = alu_result[0];
+                3'b111: pcSrc = !alu_result[0];
+            endcase
+        end
+    end
+
     // Branch resolvido no estagio EX (flush 2 instrucoes se taken)
     assign branch_target = id_ex.pc + id_ex.imm_ext;
-    assign pc_src        = id_ex.branch && zero;
+    assign pc_src        = pcSrc;
 
     // =========================================================================
     // Registrador EX/MEM

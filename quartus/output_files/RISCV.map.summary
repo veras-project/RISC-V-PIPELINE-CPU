@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Fri Jun 19 15:58:00 2026
+Analysis & Synthesis Status : Successful - Sat Jun 27 14:08:51 2026
 Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 Revision Name : RISCV
 Top-level Entity Name : pl_top_no_pll
 Family : Cyclone IV E
-Total logic elements : 18,191
-    Total combinational functions : 8,902
+Total logic elements : 18,200
+    Total combinational functions : 8,909
     Dedicated logic registers : 9,717
 Total registers : 9717
 Total pins : 52
