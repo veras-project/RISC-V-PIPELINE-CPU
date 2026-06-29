@@ -10,7 +10,7 @@ cModel Technology
 dC:/Users/pedro/OneDrive/Documentos/Códigos/LOAC/RISC-V-PIPELINE-CPU/modelsim
 vpl_alu
 Z0 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
-Z1 !s110 1782691687
+Z1 !s110 1782771148
 !i10b 1
 !s100 DQO95l6U]S7_1?3_17og81
 IBVfUXR^NGCkkSL=3GHbRZ3
@@ -26,7 +26,7 @@ Z6 OV;L;10.5b;63
 r1
 !s85 0
 31
-Z7 !s108 1782691687.000000
+Z7 !s108 1782771148.000000
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_alu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_alu.sv|
 !i113 1
@@ -60,13 +60,13 @@ vpl_control
 R0
 R1
 !i10b 1
-!s100 FS<i9jSk?]9efkT=C5V`e2
-I_e5^7li?FWR;395>HaVlU2
+!s100 ^UB3]TbD;mPU?33:gPY8c2
+ImWPdb]<M:=Xh3zd3ILdDi2
 R2
 !s105 pl_control_sv_unit
 S1
 R3
-w1782691591
+w1782771078
 8D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_control.sv
 FD:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_control.sv
 L0 29
@@ -82,7 +82,7 @@ R8
 R9
 vpl_cpu
 R0
-Z10 !s110 1782691688
+R1
 !i10b 1
 !s100 Pd8>`T8Ylc3Jnk4[?24oS2
 IB?JFmoXmL0AmiBLAJjeGQ1
@@ -98,7 +98,7 @@ R6
 r1
 !s85 0
 31
-Z11 !s108 1782691688.000000
+R7
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_cpu.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_cpu.sv|
 !i113 1
@@ -106,7 +106,7 @@ R8
 R9
 vpl_cpu_tb
 R0
-R10
+R1
 !i10b 1
 !s100 UjKRhnWSNi9QaiTDl6`=a1
 IW_;?G9h4Q;V6T=`1UG4^U2
@@ -122,7 +122,7 @@ R6
 r1
 !s85 0
 31
-R11
+R7
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_cpu_tb.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_cpu_tb.sv|
 !i113 1
@@ -130,32 +130,32 @@ R8
 R9
 vpl_datapath
 R0
-Z12 DXx4 work 11 pl_pipe_pkg 0 22 LoO5]nHBQc@:E]gPJI;=V1
+Z10 DXx4 work 11 pl_pipe_pkg 0 22 LoO5]nHBQc@:E]gPJI;=V1
 DXx4 work 19 pl_datapath_sv_unit 0 22 5Q]RWP?B]mXf18[R>D0`^2
 R2
 r1
 !s85 0
 31
 !i10b 1
-!s100 ig]<3_TO2^9Y1BAZCaLmg2
-IgheOn]b?0jYI@dPPJ5S1^0
+!s100 2H[6GNFkD97TZWSfF9o?93
+I2QlQ=_ARAQRdJ7e`GebgS2
 !s105 pl_datapath_sv_unit
 S1
 R3
-Z13 w1782691683
-Z14 8D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_datapath.sv
-Z15 FD:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_datapath.sv
+Z11 w1782770875
+Z12 8D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_datapath.sv
+Z13 FD:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_datapath.sv
 L0 27
 R6
-Z16 !s108 1782691686.000000
-Z17 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_datapath.sv|
-Z18 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_datapath.sv|
+Z14 !s108 1782771146.000000
+Z15 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_datapath.sv|
+Z16 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_datapath.sv|
 !i113 1
 R8
 R9
 Xpl_datapath_sv_unit
 R0
-R12
+R10
 V5Q]RWP?B]mXf18[R>D0`^2
 r1
 !s85 0
@@ -166,20 +166,20 @@ I5Q]RWP?B]mXf18[R>D0`^2
 !i103 1
 S1
 R3
+R11
+R12
 R13
+Z17 L0 25
+R6
 R14
 R15
-Z19 L0 25
-R6
 R16
-R17
-R18
 !i113 1
 R8
 R9
 vpl_dmem
 R0
-Z20 !s110 1782691686
+Z18 !s110 1782771146
 !i10b 1
 !s100 YIBiB7jHI1Aa<aTO??VjC3
 I6N`G_DZ3CdIK5K:65VbS[2
@@ -190,12 +190,12 @@ R3
 w1782685318
 8D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_dmem.sv
 FD:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_dmem.sv
-Z21 L0 16
+Z19 L0 16
 R6
 r1
 !s85 0
 31
-R16
+R14
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_dmem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_dmem.sv|
 !i113 1
@@ -203,7 +203,7 @@ R8
 R9
 vpl_forward
 R0
-R20
+R18
 !i10b 1
 !s100 j0[M@8^IDU@eFC:Y>a93S0
 I8GZE6nWMSbUnodDTXBS_P0
@@ -214,12 +214,12 @@ R3
 R4
 8D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_forward.sv
 FD:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_forward.sv
-R21
+R19
 R6
 r1
 !s85 0
 31
-R16
+R14
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_forward.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_forward.sv|
 !i113 1
@@ -227,7 +227,7 @@ R8
 R9
 vpl_hazard
 R0
-R20
+Z20 !s110 1782771147
 !i10b 1
 !s100 V=6]Rg:`CXMe]=0]znR6H1
 IcVz`71kG<5[;[D]@Wk>2M2
@@ -238,12 +238,12 @@ R3
 R4
 8D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_hazard.sv
 FD:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_hazard.sv
-R21
+R19
 R6
 r1
 !s85 0
 31
-R16
+Z21 !s108 1782771147.000000
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_hazard.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_hazard.sv|
 !i113 1
@@ -267,7 +267,7 @@ R6
 r1
 !s85 0
 31
-R16
+R21
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_imem.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_imem.sv|
 !i113 1
@@ -286,12 +286,12 @@ R3
 w1782678325
 8D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_mmio.sv
 FD:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_mmio.sv
-R19
+R17
 R6
 r1
 !s85 0
 31
-R16
+R21
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_mmio.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_mmio.sv|
 !i113 1
@@ -314,7 +314,7 @@ R6
 r1
 !s85 0
 31
-R16
+R21
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_pipe_pkg.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_pipe_pkg.sv|
 !i113 1
@@ -322,7 +322,7 @@ R8
 R9
 vpl_regfile
 R0
-R1
+R20
 !i10b 1
 !s100 4iL]Eoo@;Rg^fhR0ZAGC01
 Ia<U7[<k8oA5WC5Wc2:iH22
@@ -338,7 +338,7 @@ R6
 r1
 !s85 0
 31
-R16
+R21
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_regfile.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_regfile.sv|
 !i113 1
@@ -346,15 +346,15 @@ R8
 R9
 vpl_sign_ext
 R0
-R1
+R20
 !i10b 1
-!s100 BH0hPi7z[__HIoVN1i<2G2
-I=V`iB[kF2R;F3DMA:z7F83
+!s100 36=2zkhYOM^:`CbG[;0SS2
+IWMQPJ_Eb@Jg=nJMd05eV<0
 R2
 !s105 pl_sign_ext_sv_unit
 S1
 R3
-w1782691575
+w1782771144
 8D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_sign_ext.sv
 FD:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_sign_ext.sv
 Z22 L0 14
@@ -362,7 +362,7 @@ R6
 r1
 !s85 0
 31
-R7
+R21
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_sign_ext.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_sign_ext.sv|
 !i113 1
@@ -370,7 +370,7 @@ R8
 R9
 vpl_top
 R0
-R1
+R20
 !i10b 1
 !s100 VPnb[;Bi9Z@[LoI>QK9;>1
 ILozAgQH15iJY7208zP@ie0
@@ -386,7 +386,7 @@ R6
 r1
 !s85 0
 31
-R7
+R21
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_top.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_top.sv|
 !i113 1
@@ -394,7 +394,7 @@ R8
 R9
 vpl_top_no_pll
 R0
-R1
+R20
 !i10b 1
 !s100 NI3QIhHTO[K0jj7jID74a3
 IJHY@oBBc9U`Hc27eSAnAd3
@@ -410,7 +410,7 @@ R6
 r1
 !s85 0
 31
-R7
+R21
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_top_no_pll.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_top_no_pll.sv|
 !i113 1
@@ -418,7 +418,7 @@ R8
 R9
 vpl_uart
 R0
-R1
+R20
 !i10b 1
 !s100 h09Al8iG9jNZ[LIn1DiBD0
 I?foIoE?MQXh?D?HH>BDnN3
@@ -434,14 +434,14 @@ R6
 r1
 !s85 0
 31
-R7
+R21
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_uart.sv|
 !s90 -reportprogress|300|-work|work|-sv|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_uart.sv|
 !i113 1
 R8
 R9
 vpll_10mhz
-R1
+R20
 !i10b 1
 !s100 TG:9]o3JZl_1Wn?BEV@L33
 I44K0cn>HLQA]m?O>>Yoo[2
@@ -455,7 +455,7 @@ R6
 r1
 !s85 0
 31
-R7
+R21
 !s107 D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pll_10mhz.v|
 !s90 -reportprogress|300|-work|work|-stats=none|D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pll_10mhz.v|
 !i113 1

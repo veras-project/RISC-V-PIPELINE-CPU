@@ -261,16 +261,27 @@ module pl_datapath (
         endcase
     end
 
-    logic choosePc;
+    logic [1:0] srca_sel;
 
-    //Ve se a instrução é auipc
     always_comb begin
-
         localparam AUIPC = 7'b0010111;
-        choosePc= 1'b0;
+        localparam LUI   = 7'b0110111; // Opcode padrão do LUI no RISC-V
+        
+        srca_sel = 2'b00; // Padrão: usa o registrador / forwarding
 
         case(id_ex.opcode)
-            AUIPC: choosePc = 1'b1;
+            AUIPC: srca_sel = 2'b01; // Escolhe PC
+            LUI:   srca_sel = 2'b10; // Escolhe Zero
+        endcase
+    end
+
+    // Mux final para SrcA antes de entrar na ALU
+    logic [31:0] final_srca;
+    always_comb begin
+        case(srca_sel)
+            2'b01:   final_srca = id_ex.pc;
+            2'b10:   final_srca = 32'b0; // Garante que LUI vai somar com ZERO
+            default: final_srca = fwd_srca;
         endcase
     end
 
@@ -287,7 +298,7 @@ module pl_datapath (
     assign alu_srcb = id_ex.alu_src ? id_ex.imm_ext : fwd_srcb;
 
     pl_alu alu (
-        .SrcA      (choosePc? id_ex.pc :fwd_srca),
+        .SrcA      (final_srca),
         .SrcB      (alu_srcb),
         .Operation (ALU_CC),
         .ALUResult (alu_result),
@@ -389,26 +400,45 @@ module pl_datapath (
 
         if (ex_mem.mem_write) begin
             case (ex_mem.funct3)
-                3'b010:begin // SW (Store Word)
+                3'b010: begin // SW (Store Word)
                     byte_enable = 4'b1111; 
-                    write_data_aligned = ex_mem.write_data;
+                    write_data_aligned = ex_mem.write_data; // Grava os 32 bits cheios
                 end
+                
                 3'b000: begin // SB (Store Byte)
                     case (ex_mem.alu_result[1:0])
-                        2'b00: byte_enable = 4'b0001; 
-                        2'b01: byte_enable = 4'b0010; 
-                        2'b10: byte_enable = 4'b0100; 
-                        2'b11: byte_enable = 4'b1000;
-                        default: write_data_aligned = ex_mem.write_data;
+                        2'b00: begin 
+                            byte_enable = 4'b0001; 
+                            write_data_aligned = ex_mem.write_data; 
+                        end
+                        2'b01: begin 
+                            byte_enable = 4'b0010; 
+                            write_data_aligned = {16'b0, ex_mem.write_data[7:0], 8'b0}; 
+                        end
+                        2'b10: begin 
+                            byte_enable = 4'b0100; 
+                            write_data_aligned = {8'b0, ex_mem.write_data[7:0], 16'b0}; 
+                        end
+                        2'b11: begin 
+                            byte_enable = 4'b1000; 
+                            write_data_aligned = {ex_mem.write_data[7:0], 24'b0}; 
+                        end
                     endcase
                 end
+                
                 3'b001: begin // SH (Store Half)
                     case (ex_mem.alu_result[1])
-                        1'b0: byte_enable = 4'b0011; 
-                        1'b1: byte_enable = 4'b1100;
-                        default: write_data_aligned = ex_mem.write_data;
+                        2'b0: begin 
+                            byte_enable = 4'b0011; 
+                            write_data_aligned = ex_mem.write_data; 
+                        end
+                        2'b1: begin 
+                            byte_enable = 4'b1100; 
+                            write_data_aligned = {ex_mem.write_data[15:0], 16'b0};
+                        end
                     endcase
                 end
+                
                 default: write_data_aligned = ex_mem.write_data;
             endcase
         end
