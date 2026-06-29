@@ -41,6 +41,8 @@ module pl_control (
     localparam I_TYPE = 7'b0010011;
     localparam LOAD   = 7'b0000011;
     localparam STORE  = 7'b0100011;
+    localparam AUIPC  = 7'b0010111;
+    localparam LUI    = 7'b0110111;
     localparam BRANCH = 7'b1100011;
 
     always_comb begin
@@ -79,6 +81,16 @@ module pl_control (
             BRANCH: begin
                 Branch   = 1'b1;
                 ALUOp    = 2'b01;
+            end
+            AUIPC: begin
+                ALUOp  = 2'b00;
+                ALUSrc = 1'b1;
+                RegWrite = 1'b1;
+            end
+            LUI: begin
+                ALUOp  = 2'b00;
+                ALUSrc = 1'b1;
+                RegWrite = 1'b1;
             end
             default: ; // sinais permanecem em zero (seguro)
         endcase

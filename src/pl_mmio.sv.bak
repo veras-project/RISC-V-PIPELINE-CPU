@@ -42,11 +42,6 @@ module pl_mmio (
     output logic [31:0] ReadData
 );
 
-    logic [31:0] tx_word;       // palavra de 32 bits em transmissao
-    logic [1:0]  tx_byte_idx;   // indice do byte atual (0=LSB, 3=MSB)
-    logic        tx_word_busy;  // alto enquanto houver bytes a enviar
-    logic [7:0]  tx_byte;       // byte corrente entregue a UART
-
     // -------------------------------------------------------------------------
     // Instancia da UART
     // -------------------------------------------------------------------------
@@ -78,7 +73,10 @@ module pl_mmio (
     // tx_word_busy permanece alto enquanto houver bytes pendentes.
     // O CPU deve aguardar tx_busy == 0 (bit 9 de LW 0x410) antes de nova SW.
     // -------------------------------------------------------------------------
-    
+    logic [31:0] tx_word;       // palavra de 32 bits em transmissao
+    logic [1:0]  tx_byte_idx;   // indice do byte atual (0=LSB, 3=MSB)
+    logic        tx_word_busy;  // alto enquanto houver bytes a enviar
+    logic [7:0]  tx_byte;       // byte corrente entregue a UART
 
     always_comb begin
         case (tx_byte_idx)

@@ -1,0 +1,120 @@
+{D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_alu_ctrl.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_alu_ctrl.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_alu_ctrl
+
+Top level modules:
+	pl_alu_ctrl
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_regfile.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_regfile.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_regfile
+
+Top level modules:
+	pl_regfile
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_top_no_pll.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_top_no_pll.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_top_no_pll
+
+Top level modules:
+	pl_top_no_pll
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_cpu.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_cpu.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_cpu
+
+Top level modules:
+	pl_cpu
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_control.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_control.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_control
+
+Top level modules:
+	pl_control
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_sign_ext.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_sign_ext.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_sign_ext
+
+Top level modules:
+	pl_sign_ext
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pll_10mhz.v} {1 {vlog -work work -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pll_10mhz.v}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pll_10mhz
+
+Top level modules:
+	pll_10mhz
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_mmio.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_mmio.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_mmio
+
+Top level modules:
+	pl_mmio
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_dmem.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_dmem.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_dmem
+
+Top level modules:
+	pl_dmem
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_uart.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_uart.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_uart
+
+Top level modules:
+	pl_uart
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_cpu_tb.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_cpu_tb.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_cpu_tb
+
+Top level modules:
+	pl_cpu_tb
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_forward.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_forward.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_forward
+
+Top level modules:
+	pl_forward
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_pipe_pkg.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_pipe_pkg.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling package pl_pipe_pkg
+
+Top level modules:
+	--none--
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_imem.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_imem.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_imem
+
+Top level modules:
+	pl_imem
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_alu.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_alu.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_alu
+
+Top level modules:
+	pl_alu
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_hazard.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_hazard.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_hazard
+
+Top level modules:
+	pl_hazard
+
+} {} {}} {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_top.sv} {1 {vlog -work work -sv -stats=none {D:/PROJETO LOAC/RISC-V-PIPELINE-CPU/src/pl_top.sv}
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module pl_top
+
+Top level modules:
+	pl_top
+
+} {} {}}

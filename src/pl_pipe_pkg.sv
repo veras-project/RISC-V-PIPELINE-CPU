@@ -8,15 +8,12 @@
 //   EX/MEM : resultado da execucao (ALU)
 //   MEM/WB : resultado do acesso a memoria
 // =============================================================================
-
 package pl_pipe_pkg;
-
     // ---- IF/ID --------------------------------------------------------------
     typedef struct packed {
         logic [31:0] pc;
         logic [31:0] instr;
     } if_id_t;
-
     // ---- ID/EX --------------------------------------------------------------
     typedef struct packed {
         // sinais de controle propagados para os estagios seguintes
@@ -37,8 +34,8 @@ package pl_pipe_pkg;
         logic [31:0] imm_ext;   // imediato com extensao de sinal
         logic [2:0]  funct3;
         logic [6:0]  funct7;
+        logic [6:0]  opcode;
     } id_ex_t;
-
     // ---- EX/MEM -------------------------------------------------------------
     typedef struct packed {
         // sinais de controle
@@ -46,22 +43,24 @@ package pl_pipe_pkg;
         logic        reg_write;
         logic        mem_read;
         logic        mem_write;
+        logic        is_jump;
         // dados
         logic [31:0] alu_result;
         logic [31:0] write_data;  // valor de rs2 apos forwarding (para SW)
         logic [4:0]  rd;
         logic [2:0]  funct3;
+        logic [31:0] pc_plus4;
     } ex_mem_t;
-
     // ---- MEM/WB -------------------------------------------------------------
     typedef struct packed {
         // sinais de controle
         logic        mem_to_reg;
         logic        reg_write;
+        logic        is_jump;
         // dados
         logic [31:0] alu_result;
         logic [31:0] read_data;   // dado lido da memoria (LW)
         logic [4:0]  rd;
+        logic [31:0] pc_plus4;
     } mem_wb_t;
-
 endpackage
